@@ -1,0 +1,6 @@
+.Completed{
+   cursor: not-allowed;
+}
+.Pending{
+   cursor:pointer;
+}

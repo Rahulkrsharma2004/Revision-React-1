@@ -1,0 +1,130 @@
+{
+  "todos": [
+    {
+      "id": "2be1",
+      "name": "Prince",
+      "title": "CAP04_103",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 13:22:07 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "d13b",
+      "name": "Shubham",
+      "title": "Buy Car",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 13:22:22 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "2413",
+      "name": "Rahul",
+      "title": "DSA Assignment",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 13:25:04 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "5f26",
+      "name": "Shubham",
+      "title": "React",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 13:29:34 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "8e5d",
+      "name": "Murtaza",
+      "title": "Chakra UI",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 13:30:01 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "b56e",
+      "name": "Rahul",
+      "title": "Bihar",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 15:59:00 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "370b",
+      "name": "Murtaza",
+      "title": "Delhi Boy",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 15:59:19 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "ddc1",
+      "name": "Shubham",
+      "title": "Python",
+      "status": true,
+      "completionDateTime": "Fri Mar 22 2024 16:59:27 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "8a46",
+      "name": "Rahul",
+      "title": "sdfsdf",
+      "status": true,
+      "completionDateTime": "Sat Mar 23 2024 00:25:57 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "e200",
+      "name": "Rahul",
+      "title": "Chakra UI",
+      "status": false,
+      "completionDateTime": "Sat Mar 23 2024 02:21:25 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "954c",
+      "name": "Murtaza",
+      "title": "book",
+      "status": true,
+      "completionDateTime": "Sat Mar 23 2024 02:36:18 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "7e33",
+      "name": "Rahul",
+      "title": "book store",
+      "status": false,
+      "completionDateTime": "Sat Mar 23 2024 02:36:29 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "acdb",
+      "name": "Murtaza",
+      "title": "book store",
+      "status": false,
+      "completionDateTime": "Sat Mar 23 2024 02:36:33 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "7df0",
+      "name": "Shubham",
+      "title": "book store",
+      "status": false,
+      "completionDateTime": "Sat Mar 23 2024 02:36:35 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "c290",
+      "name": "Shubham",
+      "title": "book store shop",
+      "status": false,
+      "completionDateTime": "Sat Mar 23 2024 02:36:45 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "3c46",
+      "name": "Murtaza",
+      "title": "book store shop",
+      "status": true,
+      "completionDateTime": "Sat Mar 23 2024 02:36:47 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "ffb7",
+      "name": "Murtaza",
+      "title": "book store shop",
+      "status": false,
+      "completionDateTime": "Sat Mar 23 2024 02:36:47 GMT+0530 (India Standard Time)"
+    },
+    {
+      "id": "fe2e",
+      "name": "Murtaza",
+      "title": "book store shop",
+      "status": false,
+      "completionDateTime": "Sat Mar 23 2024 02:36:48 GMT+0530 (India Standard Time)"
+    }
+  ]
+}
