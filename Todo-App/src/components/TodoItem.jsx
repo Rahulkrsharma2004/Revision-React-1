@@ -5,10 +5,10 @@ const TodoItem = ({id,ind,name,title,status,completionDateTime,handleUpdate,hand
   return (
     <div>
         <h3> 
-            {ind+1}
+            {id}
             <span style={{color:"greay"}}> {name}   </span> 
             <span style={{color:"blue"}}>{title}   </span>
-            <button className={status?"Completed":"Pending"} onClick={()=>handleUpdate(id,status)} style={{color: status ? "green" : "red" }} disabled={status}>{status ? "Completed":"Pending"}</button>  
+            <button className={status=="Completed"?"Completed":"Pending"} onClick={()=>handleUpdate(id,status)} style={{color: status=="Completed" ? "green" : "red" }} disabled={status=="Completed"}>{status=="Completed" ? "Completed":"Pending"}</button>  
             <span>  {completionDateTime}   </span>
             <button onClick={()=>handleDelete(id)}  style={{backgroundColor:"orange",color:"black",cursor:'pointer'}}>DELETE</button>
         </h3> 

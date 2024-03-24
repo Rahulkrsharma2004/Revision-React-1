@@ -9,16 +9,39 @@ const Todo = () => {
   const [totalPage, setTotalPage] = useState(1);
   const [items, setItems] = useState();
   const [filterValue, setFilterValue] = useState("");
+  const [assignfilterValue, setAssignfilterValue] = useState("");
+  const [sorting, setSorting] = useState("");
 
   const getData = async () => {
     try {
-      const URL = filterValue
-        ? `http://localhost:4000/todos?_page=${page}&_per_page=5&status=${filterValue}`
-        : `http://localhost:4000/todos?_page=${page}&_per_page=5`;
+      let URL = `http://localhost:3000/todos?_page=${page}&_per_page=10`;
+      if (filterValue) {
+        URL += `&status=${filterValue}`;
+      }
+      if (assignfilterValue) {
+        URL += `&name=${assignfilterValue}`;
+      }
       const { data } = await axios.get(URL);
-      setTotalPage(Math.ceil(data.items / 5));
-      setTodos(data.data);
+      setTotalPage(Math.ceil(data.items / 10));
       setItems(data.items);
+
+      if (sorting === "Latest") {
+        const sorted = data.data.slice().sort((a, b) => {
+          return (
+            new Date(b.completionDateTime) - new Date(a.completionDateTime)
+          );
+        });
+        setTodos(sorted);
+      } else if (sorting === "Earlier") {
+        const sorted = data.data.slice().sort((a, b) => {
+          return (
+            new Date(a.completionDateTime) - new Date(b.completionDateTime)
+          );
+        });
+        setTodos(sorted);
+      } else {
+        setTodos(data.data);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -26,19 +49,20 @@ const Todo = () => {
 
   useEffect(() => {
     getData();
-  }, [page, filterValue]);
+    console.log(sorting)
+  }, [page, filterValue, assignfilterValue, sorting]);
 
   const handleAdd = (title, name) => {
     const newTodo = {
       name,
       title,
-      status: false,
+      status: "Pending",
       completionDateTime: Date(),
     };
 
     axios({
       method: "POST",
-      baseURL: "http://localhost:4000/",
+      baseURL: "http://localhost:3000/",
       url: "/todos",
       data: newTodo,
       headers: {
@@ -52,9 +76,9 @@ const Todo = () => {
   const handleUpdate = (id, status) => {
     axios({
       method: "PATCH",
-      baseURL: "http://localhost:4000/",
+      baseURL: "http://localhost:3000/",
       url: `/todos/${id}`,
-      data: { status: !status },
+      data: { status: "Completed" },
     })
       .then(() => getData())
       .catch((error) => console.log(error));
@@ -63,7 +87,7 @@ const Todo = () => {
   const handleDelete = (id) => {
     axios({
       method: "DELETE",
-      baseURL: "http://localhost:4000/",
+      baseURL: "http://localhost:3000/",
       url: `/todos/${id}`,
     })
       .then(() => getData())
@@ -72,27 +96,47 @@ const Todo = () => {
 
   const handleFilterChange = (e) => {
     setFilterValue(e.target.value);
-    console.log(filterValue)
+  };
+
+  const handleAssignFilterChange = (e) => {
+    setAssignfilterValue(e.target.value);
+  };
+  const handleSorting = (e) => {
+    setSorting(e.target.value);
   };
 
   return (
     <div>
       <TodoInput handleAdd={handleAdd} />
       <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <div>
-          <h2>Filter By Status</h2>
-          <select onChange={handleFilterChange}>
-            <option value="">--</option>
-            <option value="Completed">Completed</option>
-            <option value="Pending">Pending</option>
-          </select>
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <div style={{ marginRight: "2rem" }}>
+            <h2>Filter By Status</h2>
+            <select value={filterValue} onChange={handleFilterChange}>
+              <option value="">Select Status</option>
+              <option value="Completed">Completed</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </div>
+          <div>
+            <h2>Filter By Assign To</h2>
+            <select
+              value={assignfilterValue}
+              onChange={handleAssignFilterChange}>
+              <option value="">Select AssignTo</option>
+              <option value="Rahul">Rahul</option>
+              <option value="Murtaza">Murtaza</option>
+              <option value="Prince">Prince</option>
+              <option value="Shubham">Shubham</option>
+            </select>
+          </div>
         </div>
         <div>
-          <h2>Filter By DateTime</h2>
-          <select>
-            <option value="">--</option>
-            <option value="Completed">Completed</option>
-            <option value="Pending">Pending</option>
+          <h2>Shorting By DateTime</h2>
+          <select value={sorting} onChange={handleSorting}>
+            <option value="">Select Sorting</option>
+            <option value="Latest">Latest</option>
+            <option value="Earlier">Earlier</option>
           </select>
         </div>
       </div>
@@ -117,7 +161,6 @@ const Todo = () => {
             key={ele.id}
             handleUpdate={handleUpdate}
             handleDelete={handleDelete}
-            ind={ind}
           />
         ))}
       </div>
